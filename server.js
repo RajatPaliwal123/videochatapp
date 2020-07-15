@@ -7,6 +7,8 @@ const io = socket(server);
 
 const rooms = {};
 
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 io.on("connection", socket => {
     socket.on("join room", roomID => {
         if (rooms[roomID]) {
